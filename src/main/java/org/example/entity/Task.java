@@ -2,6 +2,22 @@ package org.example.entity;
 
 
 public class Task {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return java.util.Objects.equals(project, task.project)
+                && java.util.Objects.equals(description, task.description)
+                && java.util.Objects.equals(assignee, task.assignee)
+                && priority == task.priority
+                && status == task.status;
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(project, description, assignee, priority, status);
+    }
     private String project;
     private String description;
     private String assignee;

@@ -10,12 +10,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.lang.reflect.Field;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 @ExtendWith(ResultAnalyzer.class)
 public class MainTest {
@@ -146,9 +147,9 @@ public class MainTest {
     @DisplayName("findUniqueWords doğru çalışıyor mu ?")
     @Test
     public void testFindUniqueWordsMethod() {
-        assertEquals(StringSet.findUniqueWords().size(), 143);
+        assertEquals(StringSet.findUniqueWords().length, 143);
 
-        List<String> results = StringSet.findUniqueWords().stream().collect(Collectors.toList());
+        List<String> results = java.util.Arrays.asList(StringSet.findUniqueWords());
         assertEquals(results.get(0), "a");
         assertEquals(results.get(results.size()-1), "wrote");
 
